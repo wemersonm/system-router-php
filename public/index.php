@@ -1,5 +1,13 @@
 <?php
 session_start();
 require 'bootstrap.php';
-echo "<pre>";
-print_r(router());
+try {
+    
+    $returnedInController = router();
+    $view = $returnedInController['view'];
+    $title = $returnedInController['title'];
+    extract($returnedInController);
+    require ROOT . '/app/views/template.php';
+} catch (Exception $e) {
+    echo $e->getMessage();
+}

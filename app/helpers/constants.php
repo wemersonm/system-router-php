@@ -1,2 +1,2 @@
 <?php
-define('TEST','Teste de constant');
+define('ROOT',dirname(__FILE__,3));

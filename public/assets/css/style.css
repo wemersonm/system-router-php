@@ -2,12 +2,14 @@ body {
   padding: 0;
   margin: 0;
   font-family: sans-serif;
+  box-sizing: border-box;
+  
 }
 header {
   width: 100%;
   display: flex;
   height: 80px;
-  background-color: lightblue;
+  background-color: purple;
   align-items: center;
   justify-content: space-between;
 }
@@ -20,58 +22,77 @@ header nav ul li {
 }
 header nav ul li a {
   font-weight: bold;
-  color: blue;
+  color: #fff;
   text-decoration: none;
 }
-header .status-login {
-  padding: 0 10px;
+header nav ul li a:hover{
+ color: lime;
 }
-header .status-login span {
-  font-weight: bold;
-  font-family: "Courier New", Courier, monospace;
-  color: brown;
-}
-.container {
+
+.container{
   width: 100%;
-  max-width: 1280px;
+  max-width: 1024px;
   margin: 20px auto;
 }
-.container h2 {
+.container .table-cars{
+  width: 100%;
   text-align: center;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
 }
-.container ul li {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  list-style: none;
-  background-color: aliceblue;
-  border-radius: 6px;
-  padding: 0 5px;
-}
-.container ul li p {
-  color: #000;
-  font-weight: 600;
-}
-.container ul li a {
-  padding: 7px 2px;
-  border-radius: 5px;
-  text-decoration: none;
-  color: #fff;
+.table-cars tbody tr td{
+  background-color: rgba( 240,240, 240);
+  padding: 5px 0;
+  color: purple;
   font-weight: bold;
-  background-color: purple;
+  border-radius: 6px;
 }
+a.btn{
+  text-decoration: none;
+}
+.btn {
+  padding: 4px 2px;
+  border-radius: 6px;
+}
+.btn-edit{
+  background-color: gold;
+  color: #000;
+}
+.btn-delete{
+  background-color: darkred;
+  color: #fff;
+}
+span.msgError{
+  display: block;
+  margin: 0 0 10px 0;
+  color: darkred;
+  font-weight: bold;
+  background-color: #FFA07A;
+  padding: 6px 2px;
+  border-radius: 5px;
+}
+span.msgSuccess{
+  display: block;
+  margin: 0 0 10px 0;
+  color: #006400;
+  font-weight: bold;
+  background-color: #d3f8d3;
+  padding: 6px 2px;
+  border-radius: 5px;
+
+}
+
 .container form {
   width: 100%;
   max-width: 700px;
   margin: 10px auto;
 }
 
-.container form input[type="text"],input[type="password"],input[type="email"],select[name='gender']{
+.container form input[type="text"]{
   width: 100%;
   padding: 8px 2px;
   outline: none;
   border-radius: 5px;
-  border: 1px solid lightblue;
+  border: 1px solid purple;
   font-size: 16px;
 }
 .container input[type="submit"]{
@@ -79,34 +100,24 @@ header .status-login span {
   left: 50%;
   transform: translateX(-50%);
   border: 1px solid lavender;
-  background-color: aquamarine ;
+  background-color: purple ;
   width: 120px;
   height: 40px;
   margin: 10px 0;
   border-radius: 5px;
-  color: #000;
+  color: #fff;
   font-size: 16px;
   cursor:pointer;
-  transition: background-color 0.4s ease-in-out;
+  transition: background-color 0.6s ease-in-out;
 }
 .container input[type="submit"]:hover{
-  background-color: aliceblue;
-  color:#000
+  background-color: #fff;
+  color:purple;
+  border: 1px solid purple;
 }
-.container .flashMessage{
+
+.container .flash-message{
   color: red;
-  text-align: center;
-}
-.status-login a.header-logout{
-  text-decoration: none;
-  color: #fff;
-  background-color: darkred;
-  font-weight: bold;
-  padding: 8px 4px;
-  border-radius: 7px;
-}
-.flash-message{
-  color: red;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  font-size: 13px;
+  font-size: 14px;
+  font-family: 'Courier New', Courier, monospace;
 }

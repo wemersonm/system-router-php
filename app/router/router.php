@@ -7,7 +7,7 @@ function routes()
 function exactUrlInArrayRoutes($uri, $routes)
 {
     if (array_key_exists($uri, $routes)) {
-        return $uri;
+        return [$uri => $routes[$uri]];
     }
     return [];
 }
@@ -27,32 +27,39 @@ function exactUrlDinamicInArrayRoutes($uri, $routes)
 }
 function getParams($uri, $matchUri)
 {
-    $explodeUri = explode("/",ltrim($uri,'/'));
-    $matchUri = array_keys($matchUri)[0];
-    $explodeMatchUri = explode("/", ltrim($matchUri,"/"));
-    return array_diff($explodeUri,$explodeMatchUri);
+    if (!empty($matchUri)) {
+        $explodeUri = explode("/", ltrim($uri, '/'));
+        $matchUri = array_keys($matchUri)[0];
+        $explodeMatchUri = explode("/", ltrim($matchUri, "/"));
+        return array_diff($explodeUri, $explodeMatchUri);
+    }
+    return [];
 }
 
-function associateParamsKeys($uri,$params){
+function associateParamsKeys($uri, $params)
+{
 
-    $explodeUri = explode("/",ltrim($uri,'/'));
+    $explodeUri = explode("/", ltrim($uri, '/'));
     $newParams = [];
     foreach ($params as $key => $value) {
-        $newParams[$explodeUri[$key-1]] = $value;
+        $newParams[$explodeUri[$key - 1]] = $value;
     }
     return $newParams;
-
 }
 function router()
 {
     $uri = parse_url($_SERVER['REQUEST_URI'])['path'];
     $routes = routes();
+    $params = [];
     $requestMethod = $_SERVER['REQUEST_METHOD'];
     $matchUri = exactUrlInArrayRoutes($uri, $routes[$requestMethod]);
     if (empty($matchUri)) {
         $matchUri =  exactUrlDinamicInArrayRoutes($uri, $routes[$requestMethod]);
-        $params = getParams($uri,$matchUri);
-        $params = associateParamsKeys($uri,$params);
+        $params = getParams($uri, $matchUri);
+        $params = associateParamsKeys($uri, $params);
     }
-    return controller($matchUri,$params);
+    if(!empty($matchUri)){
+        return controller($matchUri, $params);
+    }
+    throw new Exception("ROTA NAO EXISTENTE NO SISTEMA");
 }

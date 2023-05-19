@@ -1,13 +1,12 @@
 <?php
 return [
     'POST' => [
-       
+        '/car/insert' => 'Car@insert'
     ],
     'GET' => [
         '/' => 'Home@index',
-        "/user/create" => "User@index",
-        "/user/[0-9]+" => "User@details",
-        '/user/[0-9]+/name/[a-zA-z]+' => 'User@show'
+        "/car/delete/[0-9]+" => "Car@delete",
+        "/car/create" => 'car@create'
     ]
 
 ];
