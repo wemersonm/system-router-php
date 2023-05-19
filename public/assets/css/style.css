@@ -1,0 +1,112 @@
+body {
+  padding: 0;
+  margin: 0;
+  font-family: sans-serif;
+}
+header {
+  width: 100%;
+  display: flex;
+  height: 80px;
+  background-color: lightblue;
+  align-items: center;
+  justify-content: space-between;
+}
+header nav ul {
+  display: flex;
+}
+header nav ul li {
+  margin-left: 10px;
+  list-style: none;
+}
+header nav ul li a {
+  font-weight: bold;
+  color: blue;
+  text-decoration: none;
+}
+header .status-login {
+  padding: 0 10px;
+}
+header .status-login span {
+  font-weight: bold;
+  font-family: "Courier New", Courier, monospace;
+  color: brown;
+}
+.container {
+  width: 100%;
+  max-width: 1280px;
+  margin: 20px auto;
+}
+.container h2 {
+  text-align: center;
+}
+.container ul li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  list-style: none;
+  background-color: aliceblue;
+  border-radius: 6px;
+  padding: 0 5px;
+}
+.container ul li p {
+  color: #000;
+  font-weight: 600;
+}
+.container ul li a {
+  padding: 7px 2px;
+  border-radius: 5px;
+  text-decoration: none;
+  color: #fff;
+  font-weight: bold;
+  background-color: purple;
+}
+.container form {
+  width: 100%;
+  max-width: 700px;
+  margin: 10px auto;
+}
+
+.container form input[type="text"],input[type="password"],input[type="email"],select[name='gender']{
+  width: 100%;
+  padding: 8px 2px;
+  outline: none;
+  border-radius: 5px;
+  border: 1px solid lightblue;
+  font-size: 16px;
+}
+.container input[type="submit"]{
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 1px solid lavender;
+  background-color: aquamarine ;
+  width: 120px;
+  height: 40px;
+  margin: 10px 0;
+  border-radius: 5px;
+  color: #000;
+  font-size: 16px;
+  cursor:pointer;
+  transition: background-color 0.4s ease-in-out;
+}
+.container input[type="submit"]:hover{
+  background-color: aliceblue;
+  color:#000
+}
+.container .flashMessage{
+  color: red;
+  text-align: center;
+}
+.status-login a.header-logout{
+  text-decoration: none;
+  color: #fff;
+  background-color: darkred;
+  font-weight: bold;
+  padding: 8px 4px;
+  border-radius: 7px;
+}
+.flash-message{
+  color: red;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 13px;
+}
